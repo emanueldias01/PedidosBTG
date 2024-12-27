@@ -3,6 +3,7 @@ services:
   mongodb:
     image: mongo:6.0
     container_name: mongodb
+    hostname: mongodb
     ports:
       - "27017:27017"
     environment:
@@ -10,5 +11,31 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: root
     volumes:
       - mongodb_data:/data/db
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    hostname: rabbitmq
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+
+  app:
+    container_name: pedidos-app
+    build:
+      context: .
+      target: prod
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mongodb
+      - rabbitmq
+
 volumes:
   mongodb_data:
+  rabbitmq_data:

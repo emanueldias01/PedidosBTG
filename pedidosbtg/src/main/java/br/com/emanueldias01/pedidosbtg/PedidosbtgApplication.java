@@ -7,7 +7,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class PedidosbtgApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(PedidosbtgApplication.class, args);
+        try {
+            Thread.sleep(10000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        SpringApplication.run(PedidosbtgApplication.class, args);
 	}
 
 }
