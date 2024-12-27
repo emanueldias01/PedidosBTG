@@ -45,4 +45,8 @@ public class PedidoService {
 
         return new TotalPedidosClienteDTO(codigoCliente, quantidadeDePedidos);
     }
+
+    public List<PedidoResponseDTO> buscaPedidosDoCliente(Long codigoCliente){
+        return pedidoRepository.buscaPedidosDoCliente(codigoCliente).stream().map(PedidoResponseDTO::new).toList();
+    }
 }
