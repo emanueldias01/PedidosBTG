@@ -22,9 +22,9 @@ public class PedidoController {
         this.pedidoService = pedidoService;
     }
 
-    @GetMapping("/totalPedido/{codigoPedido}")
-    public ResponseEntity<ValorTotalDTO> buscaValorTotalDoPedido(@PathVariable String codigoPedido){
-        return ResponseEntity.ok(pedidoService.buscaValorTotalDoPedido(codigoPedido));
+    @GetMapping("/totalPedido/{id}")
+    public ResponseEntity<ValorTotalDTO> buscaValorTotalDoPedido(@PathVariable String id){
+        return ResponseEntity.ok(pedidoService.buscaValorTotalDoPedido(id));
     }
 
     @GetMapping("/quantidadePedidos/{codigoCliente}")
