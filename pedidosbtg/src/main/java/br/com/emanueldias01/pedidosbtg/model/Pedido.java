@@ -1,19 +1,17 @@
 package br.com.emanueldias01.pedidosbtg.model;
 
-import br.com.emanueldias01.pedidosbtg.model.dto.ItemDTO;
 import br.com.emanueldias01.pedidosbtg.model.dto.PedidoRequestDTO;
-import jakarta.persistence.*;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity
-@Table(name = "tab_pedidos")
+@Document(collection = "pedidos")
 public class Pedido {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private String id;
     private Long codigoPedido;
     private Long codigoCliente;
     private List<Item> itens = new ArrayList<>();
@@ -36,7 +34,7 @@ public class Pedido {
         return codigoPedido;
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 

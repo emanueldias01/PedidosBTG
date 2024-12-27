@@ -27,8 +27,8 @@ public class PedidoService {
         return new PedidoResponseDTO(pedido);
     }
 
-    public ValorTotalDTO buscaValorTotalDoPedido(Long id){
-        Pedido pedido = pedidoRepository.getReferenceById(id);
+    public ValorTotalDTO buscaValorTotalDoPedido(String id){
+        Pedido pedido = pedidoRepository.findById(id).get();
 
         AtomicReference<Double> totalPedido = new AtomicReference<>(0.0);
         pedido.getItens().stream().forEach(item -> {

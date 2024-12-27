@@ -6,7 +6,7 @@ import br.com.emanueldias01.pedidosbtg.model.Pedido;
 import java.util.List;
 
 public record PedidoResponseDTO(
-        Long id,
+        String id,
         Long codigoPedido,
         Long codigoCliente,
         List<ItemDTO> itens
