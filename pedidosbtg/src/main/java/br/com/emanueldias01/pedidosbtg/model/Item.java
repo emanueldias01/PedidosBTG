@@ -8,6 +8,10 @@ public class Item {
     private Double preco;
 
 
+    public Item(){
+
+    }
+
     public Double getPreco() {
         return preco;
     }
