@@ -3,11 +3,14 @@ package br.com.emanueldias01.pedidosbtg.service;
 import br.com.emanueldias01.pedidosbtg.model.Pedido;
 import br.com.emanueldias01.pedidosbtg.model.dto.PedidoRequestDTO;
 import br.com.emanueldias01.pedidosbtg.model.dto.PedidoResponseDTO;
+import br.com.emanueldias01.pedidosbtg.model.dto.TotalPedidosClienteDTO;
 import br.com.emanueldias01.pedidosbtg.model.dto.ValorTotalDTO;
 import br.com.emanueldias01.pedidosbtg.repository.PedidoRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
+
 
 @Service
 public class PedidoService {
@@ -33,5 +36,13 @@ public class PedidoService {
         });
 
         return new ValorTotalDTO(id, totalPedido.get());
+    }
+
+    public TotalPedidosClienteDTO buscaTotalDePedidosPorCliente(Long codigoCliente){
+        List<Pedido> listaDePedidos = pedidoRepository.buscaPedidosDoCliente(codigoCliente);
+
+        Integer quantidadeDePedidos = listaDePedidos.size();
+
+        return new TotalPedidosClienteDTO(codigoCliente, quantidadeDePedidos);
     }
 }
