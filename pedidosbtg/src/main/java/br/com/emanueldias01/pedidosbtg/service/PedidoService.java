@@ -35,7 +35,7 @@ public class PedidoService {
             totalPedido.updateAndGet(v -> v + item.getPreco() * item.getQuantidade());
         });
 
-        return new ValorTotalDTO(id, totalPedido.get());
+        return new ValorTotalDTO(id, (double) Math.round(totalPedido.get() * 100) / 100);
     }
 
     public TotalPedidosClienteDTO buscaTotalDePedidosPorCliente(Long codigoCliente){
