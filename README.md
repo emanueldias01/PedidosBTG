@@ -32,6 +32,7 @@ A mensagem consumida do RabbitMQ possui o seguinte formato:
     }
   ]
 }
+```
 
 ## 🌐 Endpoints Disponíveis
 
@@ -47,6 +48,7 @@ A mensagem consumida do RabbitMQ possui o seguinte formato:
   "codigoPedido": 12345,
   "valorTotal": 85.48
 }
+```
 
 ### 2. Buscar a Quantidade Total de Pedidos de um Cliente
 
@@ -60,6 +62,7 @@ A mensagem consumida do RabbitMQ possui o seguinte formato:
   "codigoCliente": 67890,
   "totalPedidos": 5
 }
+```
 
 ### 3. Buscar Todos os Pedidos de um Cliente
 
@@ -79,6 +82,7 @@ A mensagem consumida do RabbitMQ possui o seguinte formato:
     "valorTotal": 85.48
   }
 ]
+```
 
 ## 💻 Tecnologias Utilizadas
 
